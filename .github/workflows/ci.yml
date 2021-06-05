@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: Jerome1337/gofmt-action@4899d68
+      - uses: Jerome1337/gofmt-action@4899d680cd7d4a959becfe74f97170c5847f859c
   test:
     runs-on: ubuntu-latest
     steps:
