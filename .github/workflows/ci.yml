@@ -1,0 +1,13 @@
+on: [push, pull_request]
+jobs:
+  gofmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: Jerome1337/gofmt-action@4899d68
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: go generate ./...
+      - run: go test ./...
