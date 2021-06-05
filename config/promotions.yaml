@@ -1,0 +1,25 @@
+- name: "Free Raspberry Pi B with Macbook"
+  sku: FREERASPBERRYPI
+  category: freebie
+  requires:
+    sku: 43N23P
+    count: 1
+  rule:
+    sku: 234234
+    count: 1
+- name: "3 Google Homes for the price of 2"
+  sku: "3FOR2"
+  category: n4m
+  requires:
+    sku: 120P90
+    count: 3
+  rule:
+    count: 2
+- name: "Get 10% off for more than 4 Alexas"
+  sku: "10PCOFF"
+  category: discount
+  requires:
+    sku: A304SD
+    count: 4
+  rule:
+    discount: .1

@@ -1,0 +1,11 @@
+product1:
+  sku: 1234
+  name: "Some Item"
+  price: 9.99
+  stock: 12
+product2:
+  sku: ABC123
+  name: "Another Item"
+  price: 123.45
+  stock: 22
+

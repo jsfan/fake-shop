@@ -1,0 +1,17 @@
+- name: "A freebie"
+  sku: FREEBIE4U
+  category: freebie
+  requires:
+    sku: ABC123
+    count: 1
+  rule:
+    sku: 12345
+    count: 1
+- name: "A discount"
+  sku: "100OFF"
+  category: discount
+  requires:
+    sku: 98765
+    count: 10
+  rule:
+    discount: 1.
