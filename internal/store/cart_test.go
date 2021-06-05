@@ -159,7 +159,7 @@ func TestCart_Get(t *testing.T) {
 		},
 		{
 			SKU:   "B1234",
-			Name:  "Carrot",
+			Name:  "Stick",
 			Price: 0.1,
 			Count: 3,
 		},
@@ -174,7 +174,10 @@ func TestCart_Get(t *testing.T) {
 	}
 	cart, promo, errors := c.Get()
 	if !reflect.DeepEqual(cart, expectedCart) {
-		t.Errorf("Retrieved cart does not contain expected items. Expected %+v, got +%v.", expectedCart, cart)
+		t.Error("Retrieved cart does not contain expected items.")
+		for k, v := range expectedCart {
+			t.Errorf("Key: %s, Expected: %+v, Found: %+v", k, v, cart[k])
+		}
 	}
 	if len(promo) != 0 {
 		t.Errorf("Got unexpected promotion items: %+v", promo)
