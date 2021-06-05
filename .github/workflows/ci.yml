@@ -9,5 +9,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: go generate ./...
-      - run: go test ./...
+      - run: |
+          go generate ./...
+          go test ./...
+  publish:
+    needs:
+      - gofmt
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          go generate ./...
+          mkdir -p dist
+          go build -o dist/fakeshop cmd/fakeshop.go
+          cp -a config dist/
+      - uses: actions/upload-artifact@main
+        with:
+          name: Shop Demo
+          path: dist/
