@@ -19,12 +19,15 @@ const stockFile = "config/stock.yaml"
 const promotionsFile = "config/promotions.yaml"
 
 func main() {
+	stockFileOpt := flag.String("stock", stockFile, "Stock YAML file")
+	promoFileOpt := flag.String("promotions", promotionsFile, "Promotions YAML file")
+
 	flag.Parse()
-	stock, err := config.ReadInventory(stockFile)
+	stock, err := config.ReadInventory(*stockFileOpt)
 	if err != nil {
 		glog.Fatalf("Could not read inventory: %+v", err)
 	}
-	promotions, err := config.ReadPromotions(promotionsFile)
+	promotions, err := config.ReadPromotions(*promoFileOpt)
 	if err != nil {
 		glog.Fatalf("Could not read promotions: %+v", err)
 	}
